@@ -22,9 +22,6 @@ classes = ["OK","DEFECT"]
 image_size = 200
 
 UPLOAD_FOLDER = "uploads"
-if not os.path.exists(UPLOAD_FOLDER):
-    os.mkdir(UPLOAD_FOLDER)
-
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'JPG'])
 
 app = Flask(__name__)
@@ -52,6 +49,8 @@ def upload_file():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
+            if not os.path.exists(UPLOAD_FOLDER):
+                os.mkdir(UPLOAD_FOLDER)
             file.save(os.path.join(UPLOAD_FOLDER, filename))
             filepath = os.path.join(UPLOAD_FOLDER, filename)
 
