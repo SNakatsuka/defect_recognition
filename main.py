@@ -14,6 +14,7 @@ from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.preprocessing import image
 
 import numpy as np
+import tensorflow as tf
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
