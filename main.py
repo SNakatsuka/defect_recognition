@@ -25,6 +25,9 @@ classes = ["OK","DEFECT"]
 image_size = 200
 
 UPLOAD_FOLDER = "uploads"
+if not os.path.exists(UPLOAD_FOLDER):
+    os.mkdir(UPLOAD_FOLDER)
+
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'JPG'])
 
 app = Flask(__name__)
